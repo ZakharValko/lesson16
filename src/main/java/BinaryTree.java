@@ -86,19 +86,30 @@ public class BinaryTree {
         }
 
         else if (currentNode.getLeft() != null && currentNode.getRight() != null){
-            Node rightNode = currentNode.getRight();
-            Node mostLeft = new Node();
-            if (rightNode.getLeft() != null){
-                mostLeft = rightNode.getLeft();
+            Node newNode = currentNode;
+            if(currentNode == rootNode) {
+                if(rootNode.getRight() != null);
+                rootNode = newNode.getRight();
+                rootNode.getRight().setLeft(currentNode.getRight().getLeft());
+                rootNode.setLeft(currentNode.getLeft());
+            } else if(isLeft){
+                newNode = currentNode.getRight();
+                parentNode.setLeft(newNode);
+                if(newNode.getRight() != null)
+                    newNode.getRight().setLeft(newNode.getLeft());
+                if(currentNode.getLeft() != null)
+                    newNode.setLeft(currentNode.getLeft());
+
+            } else {
+                newNode = currentNode.getRight();
+                parentNode.setRight(newNode);
+                if(newNode.getRight() != null)
+                    newNode.getRight().setLeft(newNode.getLeft());
+                if(currentNode.getLeft() != null)
+                    newNode.setLeft(currentNode.getLeft());
             }
 
-            if(currentNode == rootNode){
-                rootNode = mostLeft;
-            } else if (isLeft) {
-                System.out.println("Im here");
-            } else {
-                System.out.println("Then here");
-            }
+
         }
         return true;
     }

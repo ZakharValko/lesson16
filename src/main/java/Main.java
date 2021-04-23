@@ -15,9 +15,9 @@ public class Main {
         myBT.addNode(128, "129");
         myBT.addNode(250, "250");
         myBT.addNode(190, "190");
-        //myBT.addNode(49, "49");
+        myBT.addNode(49, "49");
         myBT.printTree();
-        myBT.removeNodeByKey(40);
+        myBT.removeNodeByKey(100);
         myBT.printTree();
 
 
